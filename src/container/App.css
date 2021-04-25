@@ -1,0 +1,7 @@
+.App {
+  font: 1em sans-serif;
+}
+
+.container {
+  display: flex;
+}

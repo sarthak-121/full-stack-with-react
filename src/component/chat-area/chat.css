@@ -1,0 +1,38 @@
+.chatarea {
+    width: 80%;
+}
+
+.msg {
+    height: 76vh;
+    width: 100%;
+}
+
+.msg_send {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 5vh;
+    background-color: rgb(241, 240, 240);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    float: right;
+}
+
+.msg_recieved {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 5vh;
+    background-color: rgb(193, 247, 204);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    float: left;
+}
+
+@media (max-width: 1024px) {
+    .chatarea {
+        width: 100%;
+    }
+}

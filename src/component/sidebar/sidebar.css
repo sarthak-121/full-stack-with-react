@@ -1,0 +1,20 @@
+.sidebar {
+    width: 20%;
+    height: 92vh;
+    overflow-y: scroll;
+}
+
+.msg {
+    margin: 15px;
+}
+
+.heading {
+    margin: 10px;
+}
+@media (max-width: 1024px) {
+    .sidebar {
+        margin-left: -20%;
+    }
+}
+
+

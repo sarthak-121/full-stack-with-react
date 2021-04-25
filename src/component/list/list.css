@@ -1,0 +1,38 @@
+.list {
+    margin: 5px 15px;
+    width: 90%;
+    height: 6vh;
+    padding: 3px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(241, 240, 240);
+}
+
+.add_btn {
+    margin-right: 5px;
+    border-radius: 20px;
+    color: white;
+    background-color: #CC8899;
+    border: none;
+    padding: 5px;
+}
+
+.add_btn:hover {
+    background-color: green;
+    padding: 7px;
+}
+
+.add_btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.names {
+    margin:0; 
+    padding:0; 
+    box-sizing:border-box;
+    margin-left: 5px;
+}
+

@@ -1,0 +1,24 @@
+.navbar {
+    background-color: black;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid white;
+}
+
+.navbar_item {
+    margin: 0px 10px;
+}
+
+.navbar_link {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar_link:hover {
+    color: rgba(125, 125, 248, 0.774);
+    text-decoration: none;
+}
+

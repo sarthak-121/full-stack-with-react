@@ -1,0 +1,17 @@
+.accept, .decline{
+    padding: 10px 15px;
+    margin: 10px 7px;
+    border: none;
+    color: black;
+    background-color: rgb(167, 167, 167);
+}
+
+.accept:hover {
+    color: white;
+    background-color: #7CFC00;
+}
+
+.decline:hover {
+    color: white;
+    background-color: tomato;
+}

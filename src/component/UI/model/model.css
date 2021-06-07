@@ -10,3 +10,9 @@
     left: 42%;
     top: 20%;
 }
+
+@media (max-width: 1024px) {
+    .model {
+        left: 18%;
+    }
+}

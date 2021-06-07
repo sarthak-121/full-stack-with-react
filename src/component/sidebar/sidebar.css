@@ -1,6 +1,10 @@
 .sidebar {
+    display: none;
+}
+
+.sidebar_show {
     width: 20%;
-    height: 92vh;
+    height: calc(100vh - 58px);
     overflow-y: scroll;
 }
 
@@ -13,8 +17,13 @@
 }
 @media (max-width: 1024px) {
     .sidebar {
-        margin-left: -20%;
+        display: none;
+    }
+
+    .sidebar_show {
+        position: absolute;
+        z-index: 300;
+        background-color: white;
+        width: 50%;
     }
 }
-
-

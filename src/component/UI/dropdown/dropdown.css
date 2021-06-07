@@ -29,13 +29,13 @@
 .dropdown_items {
     border: none;
     background-color: inherit;
+    text-align: center;
     padding: 5px;
+    color: black;
 }
 
 .dropdown_items:hover {
     background-color: rgb(241, 240, 240);
-}
-
-.dropdown_items:focus {
-    outline: none;
+    color: black;
+    text-decoration: none;
 }

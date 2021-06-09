@@ -2,11 +2,11 @@
     flex-grow: 1;
     display: flex;
     flex-flow: column;
-    height: 100%;
+    height: calc(100vh - 58px);
 }
 
 .msg {
-    height: calc(100vh - 175px);
+    height: calc(100vh - 174px);
     width: 100%;
     display: flex;
     flex-direction: column;

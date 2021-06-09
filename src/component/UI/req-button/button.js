@@ -18,7 +18,7 @@ const Button = (props) => {
     const clickHandler = async () => {
         if(props.name === 'Accept') {
             try {
-                const response = await fetch('http://localhost:8080/acceptedReq', {
+                const response = await fetch('https://full-stack-chat-app-121.herokuapp.com/acceptedReq', {
                     method: 'POST',
                     headers: {
                       'Content-Type': 'application/json'

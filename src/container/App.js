@@ -7,12 +7,12 @@ import Model from '../component/UI/model/model'
 import Register from '../component/signup-login-model/model'
 import Requests from '../component/requests/requests'
 import Feeds from '../component/feeds/feeds'
-import { io } from 'socket.io-client'
+import io from 'socket.io-client/dist/socket.io.js'
 import { useDispatch } from 'react-redux'
 import {sendedAction, recievedAction, credentialAction, friendAction} from '../store/index'
 import {Route, Switch} from 'react-router-dom'
 
-const socket = io('http://localhost:8080')
+const socket = io('https://full-stack-chat-app-121.herokuapp.com/')
 
 const app = () => {
     const dispatch = useDispatch()
@@ -63,7 +63,7 @@ const app = () => {
       }
 
       try {
-        const response = await fetch('http://localhost:8080/setRequest', {
+        const response = await fetch('https://full-stack-chat-app-121.herokuapp.com/setRequest', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'

@@ -1,0 +1,26 @@
+[33mcommit b4a76e414d9595e8fd25bcfe7d5e1ba69c6a4478[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Sarthak Kavidayal <setu.kavidayal@gmail.com>
+Date:   Tue Jun 8 02:03:14 2021 +0530
+
+    ready for deployment
+
+[33mcommit 6281793341d5eb0494836521b634e179f96ada50[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Sarthak Kavidayal <setu.kavidayal@gmail.com>
+Date:   Sat May 8 19:36:30 2021 +0530
+
+    log in wired up
+    sign up not wired
+    socket connection active
+
+[33mcommit 5f7e437e88431bccde79512ee660a38287fe3c23[m
+Author: Sarthak Kavidayal <setu.kavidayal@gmail.com>
+Date:   Mon Apr 26 01:54:18 2021 +0530
+
+    changed to react for full stack project
+
+[33mcommit d2373d7d31685f548bfb6de88f242f452c7ebc7a[m
+Author: Sarthak Kavidayal <setu.kavidayal@gmail.com>
+Date:   Mon Apr 26 01:46:55 2021 +0530
+
+    changed to rect for full stack project
+    static site created

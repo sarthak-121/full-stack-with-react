@@ -12,7 +12,7 @@ const sidebar = (props) => {
 
     const getPeopleList = useCallback(async () => {
       try{
-        const response = await fetch('http://localhost:8080/people', {
+        const response = await fetch('https://full-stack-chat-app-121.herokuapp.com/people', {
           method: 'GET',
           headers: {
               'Content-Type': 'application/json'

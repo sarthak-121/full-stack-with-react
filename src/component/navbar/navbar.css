@@ -1,54 +1,52 @@
 .navbar {
-    background-color: black;
-    height: 58px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  background-color: black;
+  height: 58px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navbar_item {
-    margin: 0px 10px;
+  margin: 0px 10px;
 }
 
 .navbar_link {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .navbar_link:hover {
-    color: rgba(125, 125, 248, 0.774);
-    text-decoration: none;
+  color: rgba(125, 125, 248, 0.774);
+  text-decoration: none;
 }
 
 .user_btn {
-    background-color: inherit;
-    border: none;
+  background-color: inherit;
+  border: none;
 }
 
 .user_btn:focus {
-    outline: none;
+  outline: none;
 }
 
-.user_btn img{
-    border-radius: 50%;
-    height: 40px;
-}
-
-.user_btn img:hover {
-    border: 2px solid white
+.user_btn img {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: 2px solid white;
 }
 
 .hamburger_btn {
-    background-color: inherit;
-    border: none;
-    margin-right: 5px;
+  background-color: inherit;
+  border: none;
+  margin-right: 5px;
 }
 
 .hamburger_btn:focus {
-    outline: none;
+  outline: none;
 }
 
 .hamburger_btn img {
-    height: 30px;
+  height: 30px;
 }

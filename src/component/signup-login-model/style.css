@@ -1,55 +1,55 @@
 .input_field {
-    border: none;
-    border-radius: 5px;
-    background-color: antiquewhite;
-    padding: 5px 10px;
-    margin: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: antiquewhite;
+  padding: 5px 10px;
+  margin: 10px 15px;
 }
 
 .submit_btn {
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .submit_btn:hover {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
 }
 
 .submit_btn:focus {
-    outline: none;
+  outline: none;
 }
 
 .label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .toggel {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .toggel_btn {
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .toggel_btn:hover {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
 .toggel_btn:focus {
-    outline: none;
+  outline: none;
 }
 
 .red {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
 .error_msg {
-    color: red;
+  color: red;
 }

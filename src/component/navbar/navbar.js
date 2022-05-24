@@ -1,28 +1,65 @@
-import React, {useState} from 'react'
-import classes from './navbar.css'
-import avatar from '../assets/images/avatar.png'
-import hamburger from '../assets/images/hamburger.jpg'
-import Dropdown from '../UI/dropdown/dropdown'
+import React, { useState, useEffect } from "react";
+import classes from "./navbar.css";
+import avatar from "../assets/images/avatar.png";
+import hamburger from "../assets/images/hamburger.jpg";
+import Dropdown from "../UI/dropdown/dropdown";
 
 const Navbar = (props) => {
-    const [userBtn, setUserBtn] = useState(false)
+  const [userBtn, setUserBtn] = useState(false);
+  const [image, setImage] = useState(avatar);
 
-    const dropdownHandler = () => {
-        userBtn ? setUserBtn(false) : setUserBtn(true)
+  useEffect(() => {
+    const data = JSON.parse(sessionStorage.getItem("userdata"));
+    if (
+      data !== undefined &&
+      data !== null &&
+      data.image !== null &&
+      data.image !== ""
+    ) {
+      setImage(data.image);
+      return;
     }
 
-    return(
-            <div className={classes.navbar}>
-                <div className={classes.navbar_item}>
-                    <button onClick={props.sidebarHandler} className={classes.hamburger_btn}><img src={hamburger} alt=""></img></button>
-                    <a className={classes.navbar_link}>Application</a>
-                </div>
-                <div className={classes.navbar_item}>
-                    {userBtn ? <Dropdown clickHandler={dropdownHandler} userdata={props.userdata}/> : null}
-                    <button onClick={dropdownHandler} className={classes.user_btn}><img src={avatar} alt=""></img></button>
-                </div> 
-            </div>
-    )
-}
+    if (
+      data !== undefined &&
+      data != null &&
+      data.profile_picture !== null &&
+      data.profile_picture !== ""
+    ) {
+      setImage(
+        `https://full-stack-chat-app-121.herokuapp.com/image/${data.profile_picture}`
+      );
+      return;
+    }
 
-export default Navbar
+    setImage(avatar);
+  }, []);
+
+  const dropdownHandler = () => {
+    userBtn ? setUserBtn(false) : setUserBtn(true);
+  };
+
+  return (
+    <div className={classes.navbar}>
+      <div className={classes.navbar_item}>
+        <button
+          onClick={props.sidebarHandler}
+          className={classes.hamburger_btn}
+        >
+          <img src={hamburger} alt=""></img>
+        </button>
+        <a className={classes.navbar_link}>Application</a>
+      </div>
+      <div className={classes.navbar_item}>
+        {userBtn ? (
+          <Dropdown clickHandler={dropdownHandler} userdata={props.userdata} />
+        ) : null}
+        <button onClick={dropdownHandler} className={classes.user_btn}>
+          <img src={image} alt=""></img>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;

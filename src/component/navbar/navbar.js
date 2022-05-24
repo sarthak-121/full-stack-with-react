@@ -55,7 +55,7 @@ const Navbar = (props) => {
           <Dropdown clickHandler={dropdownHandler} userdata={props.userdata} />
         ) : null}
         <button onClick={dropdownHandler} className={classes.user_btn}>
-          <img src={image} alt=""></img>
+          <img src={image} alt="Profile pic"></img>
         </button>
       </div>
     </div>

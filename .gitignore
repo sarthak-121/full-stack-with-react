@@ -21,3 +21,5 @@ yarn-debug.log*
 yarn-error.log*
 
 initial_readme
+.github/
+.gitignore

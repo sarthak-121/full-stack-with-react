@@ -164,7 +164,7 @@ const app = () => {
         <Route path="/forgot-password">
           <ForgotPassword />
         </Route>
-        <Route path="/change-password">
+        <Route path="/change-password/:token">
           <ChangePassword />
         </Route>
         <Route path="*">

@@ -7,8 +7,6 @@ const forgot_password = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    error.current.innerHTML = "An error occured, try again";
-    error.current.style.color = "red";
 
     try {
       const response = await fetch(
@@ -24,6 +22,8 @@ const forgot_password = () => {
 
       if (data.success === true) {
         error.current.style.display = "flex";
+        error.current.innerHTML = data.message;
+        error.current.style.color = "green";
       }
       if (data.error === true) {
         error.current.style.display = "flex";

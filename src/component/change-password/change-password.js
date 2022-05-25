@@ -1,16 +1,54 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 import classes from "./change-password.css";
 
 const change_password = () => {
   const pass = useRef();
   const confirmPass = useRef();
   const error = useRef();
+  const params = useParams();
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    error.current.innerHTML = "An error occured, try again";
-    error.current.style.color = "red";
-    error.current.style.display = "flex";
+    if (pass.current.value !== confirmPass.current.value) {
+      error.current.style.display = "flex";
+      error.current.innerHTML = "Password did not match";
+      error.current.style.color = "red";
+    }
+
+    const body = {
+      password: pass.current.value,
+      token: params.token,
+    };
+    try {
+      const response = await fetch(
+        "https://full-stack-chat-app-121.herokuapp.com/change-password",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body),
+        }
+      );
+
+      const data = await response.json();
+      console.log(data);
+      if (data.error === true) {
+        error.current.style.display = "flex";
+        error.current.innerHTML = data.message;
+        error.current.style.color = "green";
+        return;
+      }
+      if (data.success === true) {
+        error.current.style.display = "flex";
+        error.current.innerHTML = data.message;
+        error.current.style.color = "green";
+        return;
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (

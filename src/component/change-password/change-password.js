@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 import classes from "./change-password.css";
 
 const change_password = () => {
@@ -7,6 +9,7 @@ const change_password = () => {
   const confirmPass = useRef();
   const error = useRef();
   const params = useParams();
+  const history = useHistory();
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -22,7 +25,7 @@ const change_password = () => {
     };
     try {
       const response = await fetch(
-        "https://full-stack-chat-app-121.herokuapp.com/change-password",
+        "https://full-stack-chat-app-121.herokuapp.com/change-pass",
         {
           method: "POST",
           headers: {
@@ -46,6 +49,8 @@ const change_password = () => {
         error.current.style.color = "green";
         return;
       }
+
+      history.push("/");
     } catch (e) {
       console.log(e);
     }

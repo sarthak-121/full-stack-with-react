@@ -71,14 +71,17 @@ const settings = () => {
 
   const removeImageHandler = async () => {
     try {
-      const response = await fetch(`http://localhost:8001/profile-picture`, {
-        method: "DELETE",
-        headers: {
-          authorization: `Bearer ${JSON.parse(
-            sessionStorage.getItem("token")
-          )}`,
-        },
-      });
+      const response = await fetch(
+        `https://full-stack-chat-app-121.herokuapp.com/profile-picture`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${JSON.parse(
+              sessionStorage.getItem("token")
+            )}`,
+          },
+        }
+      );
 
       const data = await response.json();
 

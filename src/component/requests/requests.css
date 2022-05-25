@@ -36,3 +36,11 @@
   height: 40px;
   border-radius: 50%;
 }
+
+.reload_btn {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  margin-top: 10px;
+  margin-right: 10px;
+}

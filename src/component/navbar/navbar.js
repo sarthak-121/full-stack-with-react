@@ -19,8 +19,10 @@ const Navbar = (props) => {
       data !== undefined &&
       data !== null &&
       data.image !== null &&
+      data.image !== undefined &&
       data.image !== ""
     ) {
+      console.log(data.image);
       setImage(data.image);
       return;
     }
@@ -29,8 +31,10 @@ const Navbar = (props) => {
       data !== undefined &&
       data != null &&
       data.profile_picture !== null &&
+      data.profile_picture !== undefined &&
       data.profile_picture !== ""
     ) {
+      console.log(data.profile_picture);
       setImage(
         `https://full-stack-chat-app-121.herokuapp.com/image/${data.profile_picture}`
       );

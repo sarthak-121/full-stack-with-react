@@ -11,16 +11,16 @@ const sidebar = (props) => {
   const friends = useSelector((state) => state.friends);
 
   const getPeopleList = useCallback(async () => {
+    const token = JSON.parse(sessionStorage.getItem("token"));
+    console.log(token);
     try {
-      const response = await fetch(
-        "https://full-stack-chat-app-121.herokuapp.com/people",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch("http://localhost:8001/people", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      });
       if (!response.ok) {
         throw new Error("something went wrong");
       }
@@ -91,8 +91,8 @@ const sidebar = (props) => {
       )}
       <hr />
       <h2 className={classes.heading}>About</h2>
-      <p className={classes.msg}>Sarthak Kavidayal</p>
-      <p className={classes.msg}>&#169; 2021</p>
+      {/* <p className={classes.msg}>Sarthak Kavidayal</p> */}
+      <p className={classes.msg}>&#169; 2022</p>
     </div>
   );
 };

@@ -35,16 +35,18 @@ const app = () => {
 
   useEffect(() => {
     const data = JSON.parse(sessionStorage.getItem("userdata"));
+    const token = JSON.parse(sessionStorage.getItem("token"));
 
     if (data) {
-      authenticationHandler(data);
+      authenticationHandler(data, token);
       socket.on("welcomeMessage", (msg) => {
         console.log(msg);
       });
     }
   }, []);
 
-  const authenticationHandler = (data) => {
+  const authenticationHandler = (data, token) => {
+    console.log(data);
     setUserdata({
       username: data.username,
       password: data.password,
@@ -64,6 +66,7 @@ const app = () => {
     setAuthenticated(true);
 
     sessionStorage.setItem("userdata", JSON.stringify(data));
+    sessionStorage.setItem("token", JSON.stringify(token));
   };
 
   const sidebarHandler = () => {
@@ -83,6 +86,9 @@ const app = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authentication: `Bearer ${JSON.parse(
+              sessionStorage.getItem("token")
+            )}`,
           },
           body: JSON.stringify(data),
         }

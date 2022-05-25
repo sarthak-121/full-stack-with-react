@@ -50,6 +50,11 @@ const settings = () => {
         `https://full-stack-chat-app-121.herokuapp.com/profile-picture`,
         {
           method: "POST",
+          headers: {
+            Authentication: `Bearer ${JSON.parse(
+              sessionStorage.getItem("token")
+            )}`,
+          },
           body: userData,
         }
       );

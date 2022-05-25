@@ -9,7 +9,12 @@ const Navbar = (props) => {
   const [image, setImage] = useState(avatar);
 
   useEffect(() => {
-    const data = JSON.parse(sessionStorage.getItem("userdata"));
+    const userdata = sessionStorage.getItem("userdata");
+    if (userdata === undefined) {
+      return;
+    }
+    console.log(userdata);
+    const data = JSON.parse(userdata);
     if (
       data !== undefined &&
       data !== null &&
@@ -54,9 +59,12 @@ const Navbar = (props) => {
         {userBtn ? (
           <Dropdown clickHandler={dropdownHandler} userdata={props.userdata} />
         ) : null}
-        <button onClick={dropdownHandler} className={classes.user_btn}>
-          <img src={image} alt="Profile pic"></img>
-        </button>
+        <img
+          onClick={dropdownHandler}
+          className={classes.user_btn}
+          src={image}
+          alt="Profile pic"
+        ></img>
       </div>
     </div>
   );

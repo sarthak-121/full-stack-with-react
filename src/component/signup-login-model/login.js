@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import classes from "./style.css";
 import Aux from "../../hoc/Auxillary";
@@ -6,6 +6,7 @@ import Aux from "../../hoc/Auxillary";
 const login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const error = useRef();
 
   const signupHandler = async () => {
     const userdata = {
@@ -24,11 +25,13 @@ const login = (props) => {
         }
       );
 
-      if (!response.ok) {
-        throw new Error(response);
-      }
       const data = await response.json();
-      props.authenticate(data);
+      console.log(data);
+      if (data.error === true) {
+        error.current.innerHTML = data.message;
+        return;
+      }
+      props.authenticate(data.data, data.token);
     } catch (e) {
       console.log(e);
     }
@@ -70,7 +73,7 @@ const login = (props) => {
           required
         />
         <br />
-        <h6 className={classes.error_msg}></h6>
+        <small ref={error} style={{ color: "red", display: "block" }}></small>
         <button type="submit" className={classes.submit_btn}>
           Submit
         </button>

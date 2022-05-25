@@ -42,7 +42,7 @@ const signup = (props) => {
         return;
       }
       console.log(data);
-      props.authenticate(data);
+      props.authenticate(data.data, data.token);
     } catch (e) {
       alert(e);
     }

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-
+import { Link } from "react-router-dom";
 import classes from "./style.css";
 import Aux from "../../hoc/Auxillary";
 
@@ -77,6 +77,10 @@ const login = (props) => {
         <button type="submit" className={classes.submit_btn}>
           Submit
         </button>
+        <hr />
+        <Link to="/forgot-password" style={{ color: "blue" }}>
+          Forgot Password?
+        </Link>
         <hr />
       </form>
     </Aux>

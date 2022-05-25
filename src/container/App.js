@@ -7,6 +7,8 @@ import Model from "../component/UI/model/model";
 import Register from "../component/signup-login-model/model";
 import Requests from "../component/requests/requests";
 import Settings from "../component/settings/settings";
+import ForgotPassword from "../component/forgot-password/forgot-password";
+import ChangePassword from "../component/change-password/change-password";
 import Feeds from "../component/feeds/feeds";
 import io from "socket.io-client/dist/socket.io.js";
 import { useDispatch } from "react-redux";
@@ -158,6 +160,12 @@ const app = () => {
         </Route>
         <Route path="/settings">
           <Settings />
+        </Route>
+        <Route path="/forgot-password">
+          <ForgotPassword />
+        </Route>
+        <Route path="/change-password">
+          <ChangePassword />
         </Route>
         <Route path="*">
           <h1>Not found</h1>

@@ -14,13 +14,16 @@ const sidebar = (props) => {
     const token = JSON.parse(sessionStorage.getItem("token"));
     console.log(token);
     try {
-      const response = await fetch("http://localhost:8001/people", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        "https://full-stack-chat-app-121.herokuapp.com/people",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error("something went wrong");
       }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import classes from "./requests.css";
 import { useSelector } from "react-redux";
 import { Route, Switch, NavLink, useHistory } from "react-router-dom";
@@ -12,16 +12,21 @@ const requests = () => {
   let recievedList = useSelector((state) => state.recieved);
   const history = useHistory();
   const dispatch = useDispatch();
+  const [recList, setRecList] = useState(<h6>No requests yet!</h6>);
+  const [senList, setSenList] = useState(<h6>No requests yet!</h6>);
 
-  let generatedSendedList = <h6>No requests yet!</h6>;
-  let generatedRecievedList = <h6>No requests yet!</h6>;
+  const init = useCallback(() => {
+    if (sendedList !== undefined && sendedList.length !== 0) {
+      setSenList(useMakeReqList(sendedList, true));
+    }
+    if (recievedList !== undefined && recievedList.length !== 0) {
+      setRecList(useMakeReqList(recievedList, false));
+    }
+  }, []);
 
-  if (sendedList !== undefined && sendedList.length !== 0) {
-    generatedSendedList = useMakeReqList(sendedList, true);
-  }
-  if (recievedList !== undefined && recievedList.length !== 0) {
-    generatedRecievedList = useMakeReqList(recievedList, false);
-  }
+  useEffect(() => {
+    init();
+  }, []);
 
   const backButtonHandler = () => {
     history.push("/");
@@ -51,6 +56,8 @@ const requests = () => {
 
       dispatch(sendedAction.assignArray(sended));
       dispatch(recievedAction.assignArray(recieved));
+      setRecList(useMakeReqList(recieved, false));
+      setSenList(useMakeReqList(sended, true));
     } catch (e) {
       alert(e.message);
     }
@@ -96,8 +103,8 @@ const requests = () => {
         </ul>
       </div>
       <Switch>
-        <Route path="/requests/sended">{generatedSendedList}</Route>
-        <Route path="/requests/recieved">{generatedRecievedList}</Route>
+        <Route path="/requests/sended">{senList}</Route>
+        <Route path="/requests/recieved">{recList}</Route>
         <Route path="*">Not found</Route>
       </Switch>
     </div>

@@ -1,12 +1,15 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  width: 800px;
+  padding: 10px;
+  background-color: rgb(224, 240, 255);
 }
 
 .head p {
-    margin: 10px 15px;
+  margin: 10px 15px;
+  font-weight: bold;
 }
-

@@ -23,9 +23,16 @@ const navbar = () => {
     )
       .then((response) => {
         response.json().then((data) => {
-          setImage(
-            `https://full-stack-chat-app-121.herokuapp.com/image/${data.filename.profile_picture}`
-          );
+          if (
+            data.filename.profile_picture !== undefined &&
+            data.filename.profile_picture !== ""
+          ) {
+            setImage(
+              `https://full-stack-chat-app-121.herokuapp.com/image/${data.filename.profile_picture}`
+            );
+          } else {
+            setImage(avatar);
+          }
           console.log(data);
         });
       })

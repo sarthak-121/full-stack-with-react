@@ -88,7 +88,7 @@ const app = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authentication: `Bearer ${JSON.parse(
+            authorization: `Bearer ${JSON.parse(
               sessionStorage.getItem("token")
             )}`,
           },

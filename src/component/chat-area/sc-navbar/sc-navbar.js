@@ -15,7 +15,7 @@ const navbar = () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authentication: `Bearer ${JSON.parse(
+          authorization: `Bearer ${JSON.parse(
             sessionStorage.getItem("token")
           )}`,
         },

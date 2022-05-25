@@ -35,9 +35,6 @@ const settings = () => {
   };
 
   const uploadImage = async (e) => {
-    console.log("Working");
-    console.log(e.target.files[0]);
-
     try {
       const userData = new FormData();
       userData.append("profile_pic", e.target.files[0]);
@@ -51,7 +48,7 @@ const settings = () => {
         {
           method: "POST",
           headers: {
-            Authentication: `Bearer ${JSON.parse(
+            authorization: `Bearer ${JSON.parse(
               sessionStorage.getItem("token")
             )}`,
           },
@@ -72,6 +69,33 @@ const settings = () => {
     }
   };
 
+  const removeImageHandler = async () => {
+    try {
+      const response = await fetch(`http://localhost:8001/profile-picture`, {
+        method: "DELETE",
+        headers: {
+          authorization: `Bearer ${JSON.parse(
+            sessionStorage.getItem("token")
+          )}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (data.error === true) {
+        throw new Error(data.message);
+      }
+
+      setImage(avatar);
+      const localData = JSON.parse(sessionStorage.getItem("userdata"));
+      localData.image = "";
+      localData.profile_picture = "";
+      sessionStorage.setItem("userdata", JSON.stringify(localData));
+    } catch (e) {
+      alert(e);
+    }
+  };
+
   return (
     <div className={classes.settings}>
       <div className={classes.head}>
@@ -85,7 +109,9 @@ const settings = () => {
         <button className={classes.buttons} onClick={addImageHandler}>
           Add
         </button>
-        <button className={classes.buttons}>Remove</button>
+        <button className={classes.buttons} onClick={removeImageHandler}>
+          Remove
+        </button>
       </div>
       <input
         ref={file}
